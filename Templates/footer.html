@@ -1,0 +1,30 @@
+<!--
+	footer.html
+	This page displays images of SPACEX
+-->
+
+	  <td height= 100% width= 20% right= 0px>
+		<form >
+			<img src="images/footerImg/image1.jpg" alt="SpaceX Images" height= 100% width= 100% id="picture">
+			<br>
+			<input type="button" id="begin" value="|<" display="none" >
+			<input type="button" id="previous" value="<<" display="none" >
+			
+			<input type="text" value="1" id="picNumb" disabled>
+			of 7 
+			<input type="button" id="next" value=">>" display="none" >
+			<input type="button" id="last" value=">|" display="none" >
+		</form>
+		
+		<script src="js/footer.js"></script>
+
+	  </td>
+	</table>
+
+</body>
+</html>
+
+<?php
+    //Send buffer to browser
+    ob_end_flush();
+?>

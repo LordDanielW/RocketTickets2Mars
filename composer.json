@@ -1,0 +1,13 @@
+{
+    "name": "vendor/payment",
+    "description": "Description of project payment.",
+    "authors": [
+        {
+            "name": "jakestewart",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+        "stripe/stripe-php": "dev-master"
+    }
+}

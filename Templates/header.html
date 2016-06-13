@@ -1,0 +1,82 @@
+<!--
+	header.html
+	This page displays the SPACEX logo and the navigation bar
+-->
+<?php
+    //turn on output buffering
+    ob_start();
+    session_start();
+    //Set timezone
+    date_default_timezone_set('America/Chicago');
+    //Check if session expired
+    $now = time();
+    if (!(empty($_SESSION['loggedin']))) {
+        if ($now > $_SESSION['expire']) {
+            $_SESSION = array();
+            session_destroy();
+            print '<p>Your session has timed out.</p>';
+            print '<p>You will now be redirected to the home page.</p>';
+            header("refresh:5;url=index.php");
+        }
+    }
+    
+    
+    
+    //Establish database connection
+    //$dbc = @mysql_connect('localhost', 'web_user', 'webpassword');
+    //mysql_select_db('spacex_db', $dbc);
+?>
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Mars2Tickets</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<div a>
+<body>
+	<img src="images/spacex_logo.jpg" alt="Spacex Logo" id="picture1">
+		
+	<table style="width:100%">
+	  <td width: 20%>
+		<div id="header">
+		<h4>Navigation</h4>
+		<ul >
+			<li id="index"><a href="index.php">Home</a></li>
+			
+                        <!--if user is already logged in, there is no need to display 'register' option-->
+                        <?php
+                            if (empty($_SESSION['loggedin'])) {
+                                print'<li id="register"><a href="register.php" >Register</a></li>';
+                            }
+			?>
+                        
+                        <!--Presents either 'login' or 'logout' depending on current logged in status-->
+                        <?php
+                            if (empty($_SESSION['loggedin'])) {
+                                print '<li id="login"><a href="login.php">Login</a></li>';
+                            } else {
+                                print '<li id="logout"><a href="logout.php">Logout</a></li>';
+                            }
+                        ?>
+                        
+			<li id="redFlight"><a href="redFlight.php">Red Dragon</a></li>
+			<li id="lunFlight"><a href="lunFlight.php">Luna Dragon</a></li>
+			<li id="bigFlight"><a href="bigFlight.php">BIG Dragon</a></li>
+			<li id="contact"><a href="contact.php">Contact</a></li>
+			
+                        <!--'Admin' session variable will not exist until an admin logs in-->
+                        <?php
+                            if (empty($_SESSION['admin'])) { } else {
+                                print'<li id="admin"><a href="admin.html">Admin</a></li>';
+                            }
+                        ?>
+                    
+		</ul>
+		</div>
+	  </td>
+
+

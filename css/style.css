@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/ Left & Right alignment /
+.left {float:left}
+.right {float:right}
+.wrapper {width:100%;overflow:hidden}
+
+/ header /
+header {width:100%;overflow:hidden;height:106px}
+header .right {width:600px}
+
+/ Global properties /
+body {background:#fff;border:0;font:14px Arial,Helvetica,sans-serif;color:#3c4046;line-height:20px;min-width:1000px}
+
+/ content /
+#content {width:100%;overflow:hidden}
+
+/ footer /
+footer {padding:35px 0 0 0;height:72px;width:100%;overflow:hidden;font-size:12px;line-height:18px;color:#fff;text-align:center}
+footer a {color:#3e96b4}
